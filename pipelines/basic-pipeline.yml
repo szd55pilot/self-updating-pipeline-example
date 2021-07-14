@@ -2,7 +2,7 @@ jobs:
     - name: job-hello-world
       public: true
       plan:
-      - get: timer-2min
+      - get: timer-15min
         trigger: true
       - task: hello-world
         config:
@@ -15,10 +15,10 @@ jobs:
             args: [hello world]
 
 resources:
-  - name: timer-2min
+  - name: timer-15min
     type: time
     source:
-      interval: 2m
+      interval: 15m
 
   - name: git-repo
     type: git
