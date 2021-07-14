@@ -14,8 +14,14 @@ jobs:
             path: echo
             args: [hello world]
 
-  resources:
+resources:
   - name: timer-2min
     type: time
     source:
       interval: 2m
+
+  - name: git-repo
+    type: git
+    icon: github-circle
+    source:
+      uri: https://github.com/szd55pilot/self-updating-pipeline-example.git
