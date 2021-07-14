@@ -14,13 +14,21 @@ jobs:
             path: echo
             args: [hello world]
 
+    - name: configure-pipeline
+      public: true
+      plan:
+        - get: self-update-pipeline
+          trigger: true
+        - set_pipeline: job-hello-world
+          file: self-update-pipeline/pipelines/basic-pipeline.yml
+
 resources:
   - name: timer-15min
     type: time
     source:
       interval: 15m
 
-  - name: git-repo
+  - name: self-update-pipeline
     type: git
     icon: github-circle
     source:
