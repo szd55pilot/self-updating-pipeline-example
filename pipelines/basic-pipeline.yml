@@ -2,7 +2,7 @@ jobs:
     - name: job-hello-world
       public: true
       plan:
-      - get: timer-15min
+      - get: timer-10min
         trigger: true
       - task: hello-world
         config:
@@ -23,10 +23,10 @@ jobs:
           file: self-update-pipeline/pipelines/basic-pipeline.yml
 
 resources:
-  - name: timer-15min
+  - name: timer-10min
     type: time
     source:
-      interval: 15m
+      interval: 10m
 
   - name: self-update-pipeline
     type: git
